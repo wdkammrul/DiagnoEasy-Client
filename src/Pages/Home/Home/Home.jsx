@@ -5,7 +5,6 @@ import PersonalizedSlider from "../PersonalizedSlider/PersonalizedSlider";
 const Home = () => {
     return (
         <div>
-            <h1>This Is Home</h1>
             <Banner></Banner>
             <Featured></Featured>
             <PersonalizedSlider></PersonalizedSlider>

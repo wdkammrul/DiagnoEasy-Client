@@ -1,10 +1,11 @@
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
-const Appointments = () => {
+
+const AllUsers = () => {
     return (
         <div className="bg-slate-700 p-6 ">
             <SectionTitle
-                heading={'Appointments'}
+                heading={'All Users'}
             >
             </SectionTitle>
 
@@ -25,7 +26,7 @@ const Appointments = () => {
                             <td></td>
                             <td></td>
                             <td>
-                                
+
                             </td>
                             <td>
                                 <button></button>
@@ -38,4 +39,4 @@ const Appointments = () => {
     );
 };
 
-export default Appointments;
+export default AllUsers;

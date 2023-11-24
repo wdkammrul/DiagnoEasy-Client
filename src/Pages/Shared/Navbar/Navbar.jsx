@@ -32,7 +32,7 @@ const Navbar = () => {
         } */}
         <li>
             <Link to="/dashboard/myProfile">
-                <button className="btn">
+                <button className="btn bg-blue-500">
                     DashBoard
                     {/* <FaShoppingCart className="mr-2"></FaShoppingCart> */}
                     {/* <div className="badge badge-secondary">+{cart.length}</div> */}
