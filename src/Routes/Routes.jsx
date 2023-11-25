@@ -14,6 +14,8 @@ import AllTest from "../Pages/AdminDashBoard/AllTest/AllTest";
 import Reservation from "../Pages/AdminDashBoard/Reservation/Reservation";
 import AddABanner from "../Pages/AdminDashBoard/AddABanner/AddABanner";
 import AllBanners from "../Pages/AdminDashBoard/AllBanners/AllBanners";
+import Login from "../AuthenticationPage/Login/Login";
+import Register from "../AuthenticationPage/Register/Register";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
 
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            }, 
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     },
