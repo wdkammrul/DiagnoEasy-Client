@@ -6,69 +6,154 @@ const AddATest = () => {
         <div className="bg-slate-700 p-5">
             <SectionTitle heading="Add A Test"></SectionTitle>
             <div>
-                <form >
-                    <div className="form-control w-full my-6">
-                        <label className="label">
-                            <span className="label-text">Recipe Name*</span>
-                        </label>
-                        <input
-                            type="text"
-                            defaultValue={name}
-                            placeholder="Recipe Name"
-                            // {...register('name', { required: true })}
-                            required
-                            className="input input-bordered w-full" />
-                    </div>
-                    <div className="flex gap-6">
-                        {/* category */}
-                        <div className="form-control w-full my-6">
-                            <label className="label">
-                                <span className="label-text">Category*</span>
-                            </label>
-                            {/* <select defaultValue={category} {...register('category', { required: true })} */}
-
-                            <select
-                                className="select select-bordered w-full">
-                                <option disabled value="default">Select a category</option>
-                                <option value="salad">Salad</option>
-                                <option value="pizza">Pizza</option>
-                                <option value="soup">Soup</option>
-                                <option value="dessert">Dessert</option>
-                                <option value="drinks">Drinks</option>
-                            </select>
+                <form>
+                    <div className="md:flex w-full gap-6">
+                        <div className="w-10/12">
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Name*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Name"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Image*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Image"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Price*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Price"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Date*</span>
+                                </label>
+                                <input
+                                    type="Date"
+                                    defaultValue={name}
+                                    placeholder="Date"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Details*</span>
+                                </label>
+                                <textarea placeholder="Details" name="" id="" cols="10" rows="3"></textarea>
+                            </div>
                         </div>
 
-                        {/* price */}
-                        <div className="form-control w-full my-6">
-                            <label className="label">
-                                <span className="label-text">Price*</span>
-                            </label>
-                            <input
-                                type="number"
-                               
-                                placeholder="Price"
-                                // {...register('price', { required: true })}
-                                className="input input-bordered w-full" />
+                        <div className="grid md:grid-cols-2 gap-3">
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Slots*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Slots"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Slots*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Slots"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Slots*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Slots"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Slots*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Slots"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Slots*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Slots"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Slots*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Slots"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
+                            <div className="form-control w-full my-6">
+                                <label className="label">
+                                    <span className="label-text">Slots*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={name}
+                                    placeholder="Slots"
+                                    // {...register('name', { required: true })}
+                                    required
+                                    className="input input-bordered w-full" />
+                            </div>
                         </div>
-
+                        
                     </div>
-                    {/* recipe details */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Recipe Details</span>
-                        </label>
-                        {/* <textarea defaultValue={recipe} {...register('recipe')} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea> */}
-
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                    </div>
-
-                    <div className="form-control w-full my-6">
-                        {/* <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" /> */}
-                    </div>
-
-                    <button className="btn">
-                        Update menu Item
-                    </button>
+                   
                 </form>
             </div>
         </div>
