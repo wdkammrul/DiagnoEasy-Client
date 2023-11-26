@@ -116,10 +116,10 @@ const Register = () => {
                     <input type="avatar" placeholder="Avatar" name="avatar" className="input rounded-full input-bordered"  />
                 </div>
                 <div className="form-control mt-6 ">
-                    <button className="btn btn-secondary rounded-full mt-3 mx-auto w-[220px] text-white">Register</button>
+                    <button className="btn bg-blue-600 rounded-full mt-3 mx-auto w-[220px] text-white btn-primary">Register</button>
 
                     <div className="flex my-8 ">
-                        <p className="text-center mx-auto">Already Have an account ? <Link to='/login'> <span className="underline font-extrabold text-secondary text-2xl">Log In</span> </Link></p>
+                        <p className="text-center mx-auto">Already Have an account ? <Link to='/login'> <span className=" font-extrabold text-2xl text-blue-600"> ➤ Log In </span> </Link></p>
 
                     </div>
                 </div>

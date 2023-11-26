@@ -20,23 +20,18 @@ const PersonalizedSlider = () => {
             >
                 <SwiperSlide>
                     <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                    <h3 className="text-4xl uppercase text-center -mt-16 text-white">Salads</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                    <h3 className="text-4xl uppercase text-center -mt-16 text-white">Pizzas</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                    <h3 className="text-4xl uppercase text-center -mt-16 text-white">Soups</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                    <h3 className="text-4xl uppercase text-center -mt-16 text-white">Desserts</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                    <h3 className="text-4xl uppercase text-center -mt-16 text-white">Salads</h3>
                 </SwiperSlide>
             </Swiper>
         </section>

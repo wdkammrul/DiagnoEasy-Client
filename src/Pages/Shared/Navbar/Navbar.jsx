@@ -35,7 +35,7 @@ const Navbar = () => {
         } */}
         <li>
             <Link to="/dashboard/myProfile">
-                <button className="btn bg-blue-500">
+                <button className="text-blue-500 font-bold">
                     DashBoard
                     {/* <FaShoppingCart className="mr-2"></FaShoppingCart> */}
                     {/* <div className="badge badge-secondary">+{cart.length}</div> */}
@@ -57,7 +57,8 @@ const Navbar = () => {
                             {navBar}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">DiagnoEasy</a>
+                    <img className="rounded-full w-10 h-8 " src="https://i.ibb.co/1m3vXxG/logo-icon-9ac4d805.webp" alt="" />
+                    <Link to='/' className="text-3xl ml-2 uppercase text-blue-500"><span className="text-4xl">D</span>iagnoEasy</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -84,10 +85,8 @@ const Navbar = () => {
                             </ul>
                         </div>
                             :
-                            <Link to="/login" className="btn btn-secondary text-white">Login</Link>
+                            <Link to="/login" className="btn bg-blue-600 text-white btn-primary">Login</Link>
                     }
-
-
 
                 </div>
             </div>

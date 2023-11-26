@@ -84,7 +84,7 @@ const AddABanner = () => {
                 </div>
 
 
-                <button className="btn btn-block btn-secondary" type="submit">Add Banner</button>
+                <button className="btn bg-blue-700 btn-block btn-primary text-white" type="submit">Add Banner</button>
 
 
             </form>
