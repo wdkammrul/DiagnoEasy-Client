@@ -20,8 +20,7 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const photo = form.photo.value;
-        const values = { name, email, password, photo }
+        const values = { name, email, password}
         console.log(values);
 
 
@@ -78,7 +77,43 @@ const Register = () => {
                     <label className="label mt-3">
                         <span className="label-text text-xl font-extrabold"></span>
                     </label>
-                    <input type="text" placeholder="Photo URL" name="photo" className="input rounded-full input-bordered" required />
+                    <input type="password" placeholder="Confirm Password" name="confirmPassword" className="input rounded-full input-bordered" required />
+                </div>
+                <div className="form-control">
+                    <label className="label mt-3">
+                        <span className="label-text"></span>
+                    </label>
+                    <label className="input-group">
+                        <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
+                            <option value="" disabled>Blood Group</option>
+                            <option value="remote">A+</option>
+                            <option value="remote">A-</option>
+                            <option value="remote">B+</option>
+                            <option value="remote">B-</option>
+                            <option value="remote">AB+</option>
+                            <option value="remote">AB-</option>
+                            <option value="remote">O+</option>
+                            <option value="remote">O-</option> 
+                        </select>
+                    </label>
+                </div>
+                <div className="form-control">
+                    <label className="label mt-3">
+                        <span className="label-text text-xl font-extrabold"></span>
+                    </label>
+                    <input type="text" placeholder="District" name="district" className="input rounded-full input-bordered"  />
+                </div>
+                <div className="form-control">
+                    <label className="label mt-3">
+                        <span className="label-text text-xl font-extrabold"></span>
+                    </label>
+                    <input type="text" placeholder="Upazila" name="upazila" className="input rounded-full input-bordered"  />
+                </div>
+                <div className="form-control">
+                    <label className="label mt-3">
+                        <span className="label-text text-xl font-extrabold"></span>
+                    </label>
+                    <input type="avatar" placeholder="Avatar" name="avatar" className="input rounded-full input-bordered"  />
                 </div>
                 <div className="form-control mt-6 ">
                     <button className="btn btn-secondary rounded-full mt-3 mx-auto w-[220px] text-white">Register</button>

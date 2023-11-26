@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthenticationPage/AuthProvider/AuthProvider";
 
 const Navbar = () => {
 
@@ -16,6 +18,7 @@ const Navbar = () => {
     //         </li>
     //     </>
 
+    const { user, signOutFromSite } = useContext(AuthContext)
     const navBar = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/menu">Our Menu</Link></li>
@@ -62,7 +65,30 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className="btn btn-secondary text-white">Login</Link>
+                    {
+                        user?.email ? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a className="justify-between">
+                                        {user?.email}
+
+                                    </a>
+                                </li>
+                                <li><a></a></li>
+                                <li onClick={signOutFromSite}><a>Logout</a></li>
+                            </ul>
+                        </div>
+                            :
+                            <Link to="/login" className="btn btn-secondary text-white">Login</Link>
+                    }
+
+
+
                 </div>
             </div>
         </>
