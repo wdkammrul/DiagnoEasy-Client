@@ -1,33 +1,61 @@
+import { Link } from "react-router-dom";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
+
 const Featured = () => {
     return (
-        <div>
-            
-            <section className="bg-slate-700 my-20 ">
-                <div className="container mx-auto">
-                    <h2 className="text-3xl font-semibold text-gray-800 mb-8">Featured Tests</h2>
+        <div className="">
+            <SectionTitle
+             heading='Featured Tests'
+            ></SectionTitle>
+            <div className="grid md:grid-cols-3 gap-6 my-32">
+                <div className="card w-[330px] bg-slate-700">
+                    <figure className="">
+                        <img src='https://i.ibb.co/NtFTd8J/kamrul1.jpg' alt="Shoes" className="rounded-t-xl" />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Title:</h2>
+                        <p className="text-xl text-orange-500">Desc:</p>
+                        <div className="card-actions">
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      
-                        <div className="bg-white p-6 rounded-lg shadow-md">
-                            <img src="test-image.jpg" alt="Test Image" className="w-full h-40 object-cover mb-4 rounded-md" />
-                            <p className="text-xl font-semibold mb-2">Test Name</p>
-                            <p className="text-gray-600">Date: MM/DD/YYYY</p>
-                            <p className="text-gray-600">Slots: 5</p>
+                            <Link>
+                                <button className="btn btn-primary">Book Now</button>
+                            </Link>
                         </div>
-
-                        
-                    </div>
-
-                  
-                    <h2 className="text-3xl font-semibold text-gray-800 mt-12 mb-8">Promotions</h2>
-
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                        <p className="text-gray-600">Promotion Text</p>
                     </div>
                 </div>
-            </section>
+                <div className="card w-[330px] bg-slate-700">
+                    <figure className="">
+                        <img src='https://i.ibb.co/NtFTd8J/kamrul1.jpg' alt="Shoes" className="rounded-t-xl" />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Title:</h2>
+                        <p className="text-xl text-orange-500">Desc:</p>
+                        <div className="card-actions">
 
-  
+                            <Link>
+                                <button className="btn btn-primary">Book Now</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-[330px] bg-slate-700">
+                    <figure className="">
+                        <img src='https://i.ibb.co/NtFTd8J/kamrul1.jpg' alt="Shoes" className="rounded-t-xl" />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Title:</h2>
+                        <p className="text-xl text-orange-500">Desc:</p>
+                        <div className="card-actions">
+
+                            <Link>
+                                <button className="btn btn-primary">Book Now</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+               
+
+            </div>
         </div>
     );
 };

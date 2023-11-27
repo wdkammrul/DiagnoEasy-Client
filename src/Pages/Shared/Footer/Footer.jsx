@@ -23,10 +23,16 @@ const Footer = () => {
                 <nav className="space-y-3 text-2xl font-bold ">
                     {/* <header></header> */}
                     <NavLink to='/'>Home</NavLink>
-                    <NavLink to='/allJobs'>All Jobs</NavLink>
-                    <NavLink to='/addAJob'>Add A Job</NavLink>
-                    <NavLink to='/myJobs'>My Jobs</NavLink>
+                    <NavLink to='/allTests'>All Tests</NavLink>                        
+                    <NavLink to='/services'>Our Services</NavLink>                        <Link to="/dashboard/myProfile">
+                        <button className="text-blue-500 font-bold">
+                            DashBoard
+                            {/* <FaShoppingCart className="mr-2"></FaShoppingCart> */}
+                            {/* <div className="badge badge-secondary">+{cart.length}</div> */}
+                        </button>
+                    </Link>
                 </nav>
+
 
 
 

@@ -21,8 +21,10 @@ const Navbar = () => {
     const { user, signOutFromSite } = useContext(AuthContext)
     const navBar = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Our Menu</Link></li>
-        <li><Link to="/order/salad">Order Food</Link></li>
+        <li><Link to="/allTests">All Tests</Link></li>
+        <li><Link to="/services">Our Services</Link></li>
+        <li><Link to="/orderMedicines">Order Medicines</Link></li>
+        <li><Link to="/contactUs">Contact Us</Link></li>
         {/* {
             // user ? 'true': 'false'
             // user ? condition ? 'double true' : 'one true' : 'false' 

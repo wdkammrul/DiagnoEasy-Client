@@ -16,6 +16,11 @@ import AddABanner from "../Pages/AdminDashBoard/AddABanner/AddABanner";
 import AllBanners from "../Pages/AdminDashBoard/AllBanners/AllBanners";
 import Login from "../AuthenticationPage/Login/Login";
 import Register from "../AuthenticationPage/Register/Register";
+import AllTests from "../Pages/AllTests/AllTests";
+import DetailsPage from "../Pages/DetailsPage/DetailsPage";
+import OrderMedicines from "../Pages/OrderMedicines/OrderMedicines";
+import ContactUs from "../Pages/ContactUs/ContactUs";
+import Services from "../Pages/Services/Services";
 
 export const router = createBrowserRouter([
     {
@@ -35,7 +40,28 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/allTests',
+                element: <AllTests></AllTests>
+            },
+            {
+                path: '/details',
+                element: <DetailsPage></DetailsPage>
+            },
+            {
+                path: '/orderMedicines',
+                element: <OrderMedicines></OrderMedicines>
+            },
+            {
+                path: '/contactUs',
+                element: <ContactUs></ContactUs>
+            },
+            {
+                path: '/services',
+                element: <Services></Services>
             }
+           
         ]
     },
     {

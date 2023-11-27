@@ -6,6 +6,7 @@ const DashBoard = () => {
             <div className="w-80 min-h-full bg-indigo-500 ">
                 <ul className="menu space-y-3">
                     <>
+                        <NavLink to='/' className='bg-blue-600-600 btn btn-secondary text-white'>Go Home</NavLink>
                         <h1 className="text-4xl font-extrabold p-2">User Dashboard</h1>
                         <li>
                             <NavLink to="/dashBoard/myProfile">My Profile</NavLink>
