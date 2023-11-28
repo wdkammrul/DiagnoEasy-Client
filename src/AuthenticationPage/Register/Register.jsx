@@ -20,7 +20,7 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const values = { name, email, password}
+        const values = { name, email, password }
         console.log(values);
 
 
@@ -53,77 +53,80 @@ const Register = () => {
 
     return (
         <div>
-            <form onSubmit={handleRegisterBtn} className="w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-10 mt-10">
-                <div className="form-control">
-                    <h2 className="text-4xl text-center my-6 uppercase font-extrabold">Register Here</h2>
+            <div><br /><br /></div>
+            <div>
+                <form onSubmit={handleRegisterBtn} className="w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-10 mt-10">
+                    <div className="form-control">
+                        <h2 className="text-4xl text-center my-6 uppercase font-extrabold">Register Here</h2>
 
-                    <label className="label">
-                        <span className="label-text text-xl font-extrabold"></span>
-                    </label>
-                    <input type="name" name="name" placeholder="Name" className="input rounded-full input-bordered" required />
+                        <label className="label">
+                            <span className="label-text text-xl font-extrabold"></span>
+                        </label>
+                        <input type="name" name="name" placeholder="Name" className="input rounded-full input-bordered" required />
 
-                    <label className="label mt-3">
-                        <span className="label-text text-xl font-extrabold"></span>
-                    </label>
-                    <input type="email" name="email" placeholder="Email" className="input rounded-full input-bordered" required />
-                </div>
-                <div className="form-control">
-                    <label className="label mt-3">
-                        <span className="label-text text-xl font-extrabold"></span>
-                    </label>
-                    <input type="password" placeholder="Password" name="password" className="input rounded-full input-bordered" required />
-                </div>
-                <div className="form-control">
-                    <label className="label mt-3">
-                        <span className="label-text text-xl font-extrabold"></span>
-                    </label>
-                    <input type="password" placeholder="Confirm Password" name="confirmPassword" className="input rounded-full input-bordered" required />
-                </div>
-                <div className="form-control">
-                    <label className="label mt-3">
-                        <span className="label-text"></span>
-                    </label>
-                    <label className="input-group">
-                        <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
-                            <option value="" disabled>Blood Group</option>
-                            <option value="remote">A+</option>
-                            <option value="remote">A-</option>
-                            <option value="remote">B+</option>
-                            <option value="remote">B-</option>
-                            <option value="remote">AB+</option>
-                            <option value="remote">AB-</option>
-                            <option value="remote">O+</option>
-                            <option value="remote">O-</option> 
-                        </select>
-                    </label>
-                </div>
-                <div className="form-control">
-                    <label className="label mt-3">
-                        <span className="label-text text-xl font-extrabold"></span>
-                    </label>
-                    <input type="text" placeholder="District" name="district" className="input rounded-full input-bordered"  />
-                </div>
-                <div className="form-control">
-                    <label className="label mt-3">
-                        <span className="label-text text-xl font-extrabold"></span>
-                    </label>
-                    <input type="text" placeholder="Upazila" name="upazila" className="input rounded-full input-bordered"  />
-                </div>
-                <div className="form-control">
-                    <label className="label mt-3">
-                        <span className="label-text text-xl font-extrabold"></span>
-                    </label>
-                    <input type="avatar" placeholder="Avatar" name="avatar" className="input rounded-full input-bordered"  />
-                </div>
-                <div className="form-control mt-6 ">
-                    <button className="btn bg-blue-600 rounded-full mt-3 mx-auto w-[220px] text-white btn-primary">Register</button>
-
-                    <div className="flex my-8 ">
-                        <p className="text-center mx-auto">Already Have an account ? <Link to='/login'> <span className=" font-extrabold text-2xl text-blue-600"> ➤ Log In </span> </Link></p>
-
+                        <label className="label mt-3">
+                            <span className="label-text text-xl font-extrabold"></span>
+                        </label>
+                        <input type="email" name="email" placeholder="Email" className="input rounded-full input-bordered" required />
                     </div>
-                </div>
-            </form>
+                    <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text text-xl font-extrabold"></span>
+                        </label>
+                        <input type="password" placeholder="Password" name="password" className="input rounded-full input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text text-xl font-extrabold"></span>
+                        </label>
+                        <input type="password" placeholder="Confirm Password" name="confirmPassword" className="input rounded-full input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text"></span>
+                        </label>
+                        <label className="input-group">
+                            <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
+                                <option value="" disabled>Blood Group</option>
+                                <option value="remote">A+</option>
+                                <option value="remote">A-</option>
+                                <option value="remote">B+</option>
+                                <option value="remote">B-</option>
+                                <option value="remote">AB+</option>
+                                <option value="remote">AB-</option>
+                                <option value="remote">O+</option>
+                                <option value="remote">O-</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text text-xl font-extrabold"></span>
+                        </label>
+                        <input type="text" placeholder="District" name="district" className="input rounded-full input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text text-xl font-extrabold"></span>
+                        </label>
+                        <input type="text" placeholder="Upazila" name="upazila" className="input rounded-full input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text text-xl font-extrabold"></span>
+                        </label>
+                        <input type="avatar" placeholder="Avatar" name="avatar" className="input rounded-full input-bordered" />
+                    </div>
+                    <div className="form-control mt-6 ">
+                        <button className="btn bg-blue-600 rounded-full mt-3 mx-auto w-[220px] text-white btn-primary">Register</button>
+
+                        <div className="flex my-8 ">
+                            <p className="text-center mx-auto">Already Have an account ? <Link to='/login'> <span className=" font-extrabold text-2xl text-blue-600"> ➤ Log In </span> </Link></p>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

@@ -5,7 +5,7 @@ const ContactUs = () => {
         <div>
             <div><br /><br /><br /></div>
             <SectionTitle
-             heading={'Contact Us '}
+             heading={'Contact Us'}
             ></SectionTitle>
             <div className="mt-10 bg-slate-800 p-20 rounded-lg  w-[400px] md:w-[740px] lg:w-full mx-auto flex items-center justify-center">
                 <div className="p-2 md:p-10 rounded md:shadow-2xl w-full ">
