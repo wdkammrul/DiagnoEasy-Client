@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
@@ -13,6 +13,17 @@ const Register = () => {
 
         return strongPassword.test(password);
     };
+
+ 
+    const [district, setDistrict] = useState([])
+
+    useEffect(() => {
+        fetch('districts.json')
+        .then(res => res.json())
+        .then(data => setDistrict(data))
+    })
+
+    
 
     const handleRegisterBtn = (e) => {
         e.preventDefault();
