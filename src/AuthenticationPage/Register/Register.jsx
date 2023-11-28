@@ -23,7 +23,7 @@ const Register = () => {
         .then(data => setDistrict(data))
     })
 
-    
+    // console.log(district)
 
     const handleRegisterBtn = (e) => {
         e.preventDefault();
