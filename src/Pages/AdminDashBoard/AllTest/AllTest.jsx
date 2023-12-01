@@ -1,6 +1,9 @@
+// import { useEffect, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
 const AllTest = () => {
+
+
     return (
         <div className="bg-slate-700 p-6 ">
             <SectionTitle

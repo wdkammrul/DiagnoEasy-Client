@@ -1,11 +1,29 @@
-
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
 const DetailsPage = () => {
+    // const { id } = useParams();
+    // const [details, setDetails] = useState(null)
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/tests/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setDetails(data);
+    //         })
+    //         .catch(error => {
+    //             console.error("Error fetching data:", error);
+    //         });
+    // }, [id]);
+
+    // console.log(details)
+
+
+
     return (
         <div className="w-[400px] md:w-[740px] lg:w-full mx-auto">
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
                 <img
                     className="w-full h-48 md:h-96 object-cover object-center"
-                    src='https://i.ibb.co/ZTtvgmy/489212.jpg'
+                    src=''
                     alt="Job Preview"
                 />
                 <div className="p-6">
