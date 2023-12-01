@@ -14,16 +14,23 @@ const Register = () => {
         return strongPassword.test(password);
     };
 
- 
-    const [district, setDistrict] = useState([])
+    const [districts, setDistricts] = useState([])
+    const [upazilas, setUpazilas] = useState([])
 
     useEffect(() => {
         fetch('districts.json')
         .then(res => res.json())
-        .then(data => setDistrict(data))
+        .then(data => setDistricts(data))
     })
 
-    // console.log(district)
+    useEffect(() => {
+        fetch('upazilas.json')
+        .then(res => res.json())
+        .then(data => setUpazilas(data))
+    })
+
+    console.log(upazilas)
+    // console.log(districts[2])
 
     const handleRegisterBtn = (e) => {
         e.preventDefault();
@@ -31,7 +38,11 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const values = { name, email, password }
+        const confirmPassword = form.confirmPassword.value;
+        if (password !== confirmPassword){
+            return toast.error('Password and confirmPassword does not match')
+        }
+        const values = { name, email, password, confirmPassword }
         console.log(values);
 
 
@@ -110,18 +121,48 @@ const Register = () => {
                             </select>
                         </label>
                     </div>
+
                     <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text"></span>
+                        </label>
+                        <label className="input-group">
+                            <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
+                                <option value="" disabled>District</option>
+                                {
+                                    districts.map(dis => <option key={dis.id} value={dis.name}>{dis.name}</option>)
+                                }
+                                
+                            </select>
+                        </label>
+                    </div>
+                    <div className="form-control">
+                        <label className="label mt-3">
+                            <span className="label-text"></span>
+                        </label>
+                        <label className="input-group">
+                            <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
+                                <option value="" disabled>Upazila</option>
+                                {
+                                    upazilas.map(upazila => <option key={upazila.id} value={upazila.name}>{upazila.name}</option>)
+                                }
+                                
+                            </select>
+                        </label>
+                    </div>
+
+                    {/* <div className="form-control">
                         <label className="label mt-3">
                             <span className="label-text text-xl font-extrabold"></span>
                         </label>
                         <input type="text" placeholder="District" name="district" className="input rounded-full input-bordered" />
-                    </div>
-                    <div className="form-control">
+                    </div> */}
+                    {/* <div className="form-control">
                         <label className="label mt-3">
                             <span className="label-text text-xl font-extrabold"></span>
                         </label>
                         <input type="text" placeholder="Upazila" name="upazila" className="input rounded-full input-bordered" />
-                    </div>
+                    </div> */}
                     <div className="form-control">
                         <label className="label mt-3">
                             <span className="label-text text-xl font-extrabold"></span>
