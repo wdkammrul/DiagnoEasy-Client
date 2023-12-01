@@ -2,8 +2,14 @@ import { useContext, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import useAxios from "../../hook/useAxios";
+import { imageUpload } from "../../api/utils";
 
 const Register = () => {
+
+
+    const [districts, setDistricts] = useState([])
+    const [upazilas, setUpazilas] = useState([])
 
     const { registerUser } = useContext(AuthContext);
 
@@ -14,36 +20,60 @@ const Register = () => {
         return strongPassword.test(password);
     };
 
-    const [districts, setDistricts] = useState([])
-    const [upazilas, setUpazilas] = useState([])
+   
 
     useEffect(() => {
         fetch('districts.json')
         .then(res => res.json())
         .then(data => setDistricts(data))
-    })
+    },[])
 
     useEffect(() => {
         fetch('upazilas.json')
         .then(res => res.json())
         .then(data => setUpazilas(data))
-    })
+    }, [])
 
-    console.log(upazilas)
-    // console.log(districts[2])
+    // console.log(upazilas)
+    // console.log(districts)
 
-    const handleRegisterBtn = (e) => {
-        e.preventDefault();
-        const form = e.target;
+    const axiosPublic = useAxios()
+    const handleRegisterBtn = async event => {
+        event.preventDefault();
+        const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const district = form.district.value;
+        const upazila = form.upazila.value;
+
+        const image = form.image.files[0]
+        const imageData = await imageUpload(image)
+        const singleImg = imageData?.data?.display_url 
+        // console.log(singleImg)
+        
+
+        // const formData = new FormData()
+        // formData.append('image', image)
+        // try{
+        //     const { data } = await axiosPublic.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, formData)
+
+        //     console.log(data)
+        // }catch(err){
+        //     console.log(err)
+        // }
+
+
+        const bloodGroup = form.bloodGroup.value;
+
         const confirmPassword = form.confirmPassword.value;
         if (password !== confirmPassword){
             return toast.error('Password and confirmPassword does not match')
         }
-        const values = { name, email, password, confirmPassword }
-        console.log(values);
+
+        const newUser = { name, email, password, confirmPassword, district, upazila,bloodGroup, singleImg}
+        console.log(newUser);
+        console.log(image)
 
 
         if (!isStrongPassword(password)) {
@@ -52,25 +82,45 @@ const Register = () => {
         }
 
         registerUser(email, password)
-            .then(res => toast('Congratulations! For Being A Member', res))
-            .catch(err => toast('Try Again Please', err))
-
-
-        fetch('https://b8a11-server-side-wdkammrul.vercel.app/apply', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(values),
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    form.reset();
-                }
-                console.log(data)
+            .then(res => {
+                toast('Congratulations! For Being A Member', res)
             })
+            .catch(err => console.log(' Try Again Please', err))
+
+
+        try {
+            axiosPublic.post("/users", (newUser))
+                .then(data => {
+                    console.log(data);
+                    // if (data.insertedId) {
+                    // toast('Test Added Successfully')
+                    //     form.reset();
+                    // }
+                });
+
+            console.log(newUser)
+        }
+        catch (err) {
+            console.log(err)
+        }
+
+
+        // fetch('http://localhost:5000/users', {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify(user),
+
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.insertedId) {
+        //             form.reset();
+        //         }
+        //         console.log(data)
+        //     })
+   
     }
 
     return (
@@ -108,7 +158,7 @@ const Register = () => {
                             <span className="label-text"></span>
                         </label>
                         <label className="input-group">
-                            <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
+                            <select name="bloodGroup" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
                                 <option value="" disabled>Blood Group</option>
                                 <option value="remote">A+</option>
                                 <option value="remote">A-</option>
@@ -127,8 +177,8 @@ const Register = () => {
                             <span className="label-text"></span>
                         </label>
                         <label className="input-group">
-                            <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
-                                <option value="" disabled>District</option>
+                            <select name="district" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
+                                <option value="district" disabled>District</option>
                                 {
                                     districts.map(dis => <option key={dis.id} value={dis.name}>{dis.name}</option>)
                                 }
@@ -141,8 +191,8 @@ const Register = () => {
                             <span className="label-text"></span>
                         </label>
                         <label className="input-group">
-                            <select name="category" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
-                                <option value="" disabled>Upazila</option>
+                            <select name="upazila" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
+                                <option value="upazila" disabled>Upazila</option>
                                 {
                                     upazilas.map(upazila => <option key={upazila.id} value={upazila.name}>{upazila.name}</option>)
                                 }
@@ -167,7 +217,8 @@ const Register = () => {
                         <label className="label mt-3">
                             <span className="label-text text-xl font-extrabold"></span>
                         </label>
-                        <input type="avatar" placeholder="Avatar" name="avatar" className="input rounded-full input-bordered" />
+                        {/* <input type="avatar" placeholder="Avatar" name="avatar" className="input rounded-full input-bordered" /> */}
+                        <input type="file" name="image" className="file-input file-input-bordered file-input-primary w-full rounded-full" />
                     </div>
                     <div className="form-control mt-6 ">
                         <button className="btn bg-blue-600 rounded-full mt-3 mx-auto w-[220px] text-white btn-primary">Register</button>

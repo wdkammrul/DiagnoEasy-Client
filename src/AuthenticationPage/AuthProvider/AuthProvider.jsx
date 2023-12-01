@@ -16,7 +16,6 @@ const AuthProvider = ({ children }) => {
     const registerUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
-
     }
     const signOutFromSite = () => {
         setLoading(true)
@@ -29,7 +28,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
         })
         return () => {
-            unSubscribe();
+           return unSubscribe();
         }
     }, [])
 
