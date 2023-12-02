@@ -10,11 +10,16 @@ const Appointments = () => {
             .then(data => setAppointments(data))
     }, [])
 
-    console.log(appointments[0]?.userEmail)
-    console.log(appointments)
+    // console.log(appointments[0]?.userEmail)
+    // console.log(appointments)
     // console.log(appointments[0]?.singleData)
 
-    const allAppointment = appointments[0]?.singleData
+    // const allAppointment = appointments[0]?.singleData
+
+
+    // const handleCancel = () => {
+    //     console.log(cancel)
+    // }
 
     return (
         <div className="bg-slate-700 p-6 ">
@@ -32,16 +37,19 @@ const Appointments = () => {
                             <th>Test Data</th>
                             <th>Test Details</th>
                             <th>Test Price</th>
+                            <th>Cancel</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {/* console.log(appointment?.singleData?.testName) */}
                         {
-                            appointments.map(appointment => <tr key={appointment._id}>
+                            appointments.map(appointment =><tr key={appointment._id}>
                                 <th></th>
-                                <td>{allAppointment?.testName}</td>
-                                <td>{allAppointment?.date}</td>
-                                <td>{allAppointment?.details}</td>
-                                <td>{allAppointment?.testPrice}</td>
+                                <td>{appointment?.singleData?.testName}</td>
+                                <td>{appointment?.singleData?.date}</td>
+                                <td>{appointment?.singleData?.details}</td>
+                                <td>{appointment?.singleData?.testPrice}</td> 
+                                {/* <td><button onClick={() => handleCancel(_id)} className="btn bg-blue-600">Cancel</button></td>  */}
                             </tr>)
                         }
                     </tbody>

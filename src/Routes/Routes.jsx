@@ -21,6 +21,7 @@ import OrderMedicines from "../Pages/OrderMedicines/OrderMedicines";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Services from "../Pages/Services/Services";
 import DetailsPage from "../Pages/DetailsPage/DetailsPage";
+import Update from "../Pages/Update/Update";
 
 export const router = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>
+            },
+            {
+                path: '/update',
+                element: <Update></Update>
             }
            
         ]

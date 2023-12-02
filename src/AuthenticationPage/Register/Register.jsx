@@ -160,14 +160,14 @@ const Register = () => {
                         <label className="input-group">
                             <select name="bloodGroup" className="select rounded-full checkbox-secondary input-bordered w-full border" defaultValue="">
                                 <option value="" disabled>Blood Group</option>
-                                <option value="remote">A+</option>
-                                <option value="remote">A-</option>
-                                <option value="remote">B+</option>
-                                <option value="remote">B-</option>
-                                <option value="remote">AB+</option>
-                                <option value="remote">AB-</option>
-                                <option value="remote">O+</option>
-                                <option value="remote">O-</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
                             </select>
                         </label>
                     </div>

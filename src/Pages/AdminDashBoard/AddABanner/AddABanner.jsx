@@ -85,8 +85,8 @@ const AddABanner = () => {
                         <label className="input-group">
                             <select name="isActive" className="select rounded-lg checkbox-secondary input-bordered w-full border" defaultValue="">
                                 <option value="" disabled>isActive</option>
-                                <option value="remote">True</option>
-                                <option value="remote">False</option>
+                                <option value='true'>True</option>
+                                <option value='false'>False</option>
                             </select>
                         </label>
                     </div>

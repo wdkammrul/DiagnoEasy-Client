@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 
 const AllTests = () => {
-
     const [tests, setTests] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/tests')
@@ -24,7 +23,7 @@ const AllTests = () => {
               
                 {
                     tests.map(test => <div key={test._id} className="mt-10 relative flex lg:w-full md:w-full lg:max-w-[48rem] max-w-[390px] md:max-w-[580px] bg-slate-500 text-white mx-auto md:flex-row flex-col rounded-xl  bg-clip-border  shadow-md">
-                        <div className="relative h-full md:h-full md:w-2/5  rounded-xl rounded-r-none">
+                        <div className="relative h-full md:h-full md:w-2/5  rounded-xl rounded-r-none"> 
                             <img src={test?.image} alt="" />
                         </div>
                         <div className="p-10">

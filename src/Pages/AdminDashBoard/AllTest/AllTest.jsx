@@ -1,8 +1,14 @@
 // import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
 const AllTest = () => {
-
+    const [tests, setTests] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/tests')
+            .then(res => res.json())
+            .then(data => setTests(data))
+    }, [])
 
     return (
         <div className="bg-slate-700 p-6 ">
@@ -17,7 +23,7 @@ const AllTest = () => {
                         <tr>
                             <th>Test Photo</th>
                             <th>Test Name</th>
-                            <th>Details</th>
+                            <th className="w-5">Details</th>
                             <th>Test Date</th>
                             <th>Price</th>
                             <th>Slots</th>
@@ -26,16 +32,22 @@ const AllTest = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td><button className="btn bg-blue-600">Update</button></td>
-                            <td><button className="btn bg-blue-600">Delete</button></td> 
-                        </tr>
+                       {
+                            tests.map(test => <tr key={test._id}>
+                                <th><div className="avatar">
+                                    <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img src={test?.image} />
+                                    </div>
+                                </div></th>
+                                <td>{test?.testName}</td>
+                                <td>{test?.details}</td>
+                                <td>{test?.date}</td>
+                                <td>{test?.testPrice}</td>
+                                <td>{test?.slots}</td>
+                                <td><button className="btn bg-blue-600">Update</button></td>
+                                <td><button className="btn bg-blue-600">Delete</button></td>
+                            </tr>)
+                       }
                     </tbody>
                 </table>
             </div>
