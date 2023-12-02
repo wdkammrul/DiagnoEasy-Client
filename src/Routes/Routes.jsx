@@ -17,10 +17,10 @@ import AllBanners from "../Pages/AdminDashBoard/AllBanners/AllBanners";
 import Login from "../AuthenticationPage/Login/Login";
 import Register from "../AuthenticationPage/Register/Register";
 import AllTests from "../Pages/AllTests/AllTests";
-import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import OrderMedicines from "../Pages/OrderMedicines/OrderMedicines";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Services from "../Pages/Services/Services";
+import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 
 export const router = createBrowserRouter([
     {

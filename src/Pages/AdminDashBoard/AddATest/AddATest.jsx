@@ -6,7 +6,6 @@ const AddATest = () => {
 
     const axiosPublic = useAxios()
     const handleAddATest = (e) => {
-
         e.preventDefault();
         const form = e.target;
         const testName = form.testName.value;
@@ -19,22 +18,22 @@ const AddATest = () => {
         const addTest = { testName, image, testPrice, slots, date, details }
         // console.log(addTest);
 
-        try{
+        try {
             axiosPublic.post("/tests", (addTest))
                 .then(data => {
                     console.log(data);
-                    // if (data.insertedId) {
-                    // toast('Test Added Successfully')
-                    //     form.reset();
-                    // }
+                    if (data.status === 200) {
+                        toast('Appointment Added Successfully')
+                        form.reset()
+                    }
                 });
 
             console.log(addTest)
         }
-        catch(err ){
+        catch (err) {
             console.log(err)
         }
-        
+
     }
 
 

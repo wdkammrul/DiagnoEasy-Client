@@ -13,24 +13,26 @@ const AllBanners = () => {
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Photo</th>
                             <th>Name</th>
-                            <th>Reservation</th>
+                            <th>Details</th>
+                            <th>Date</th>
+                            <th>Coupon Code</th>
+                            <th>Coupon Rate</th>
                             <th>Update</th>
-                            <th>Delete</th>
+                            <th>Delate</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <button></button>
-                            </td>
+                            <th>1</th>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td><button className="btn bg-blue-600">Update</button></td>
+                            <td><button className="btn bg-blue-600">Delete</button></td>
                         </tr>
                     </tbody>
                 </table>

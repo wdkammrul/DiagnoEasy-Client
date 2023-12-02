@@ -13,24 +13,28 @@ const AllUsers = () => {
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Profile Photo</th>
                             <th>Name</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Cancel</th>
+                            <th>Email</th>
+                            <th>Blood</th>
+                            <th>District</th>
+                            <th>Upazila</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th></th>
-                            <td></td>
-                            <td></td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <button></button>
-                            </td>
+                            <th>1</th>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
                         </tr>
                     </tbody>
                 </table>

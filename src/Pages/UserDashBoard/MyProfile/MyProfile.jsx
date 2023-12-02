@@ -21,7 +21,8 @@ const MyProfile = () => {
         <div className="space-y-4">
           <h1 className="text-4xl">Name</h1>
           <h1 className="text-4xl">Email</h1>
-          <h1 className="text-4xl">Phone</h1>
+          <h1 className="text-4xl">Blood Group</h1>
+          <h1 className="text-4xl">Address</h1>
         </div>
       </div>
     </div>
