@@ -22,6 +22,7 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
 import Services from "../Pages/Services/Services";
 import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import Update from "../Pages/Update/Update";
+import PrivateRoute from "../AuthenticationPage/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <DetailsPage></DetailsPage>
+                element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
             },
             {
                 path: '/orderMedicines',
@@ -63,15 +64,16 @@ export const router = createBrowserRouter([
                 element: <Services></Services>
             },
             {
-                path: '/update',
-                element: <Update></Update>
+                path: '/update/:id',
+                element: <PrivateRoute><Update></Update></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://diagno-easy-server.vercel.app/tests/${params.id}`)
             }
            
         ]
     },
     {
         path: 'dashBoard',
-        element: <DashBoard></DashBoard>,
+        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
@@ -110,10 +112,6 @@ export const router = createBrowserRouter([
                 path: 'allBanners',
                 element: <AllBanners></AllBanners>
             },
-
-
-
-
         ]
     }
 ]);

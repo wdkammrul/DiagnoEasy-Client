@@ -1,50 +1,54 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthenticationPage/AuthProvider/AuthProvider";
 
 const Navbar = () => {
 
-    // const navBar =
-    //     <>
-    //         <li > <a>Item 1</a></li>
-    //         <li tabIndex={0}>
-    //             <details>
-    //                 <summary>Parent</summary>
-    //                 <ul className="p-2">
-    //                     <li><a>Submenu 1</a></li>
-    //                     <li><a>Submenu 2</a></li>
-    //                 </ul>
-    //             </details>
-    //         </li>
-    //     </>
-
     const { user, signOutFromSite } = useContext(AuthContext)
+
+    const userEmail = user?.email
+
+    const [allProfile, setAllProfile] = useState([])
+    useEffect(() => {
+        fetch('https://diagno-easy-server.vercel.app/users')
+            .then(res => res.json())
+            .then(data => setAllProfile(data))
+    }, [])
+
+    const loggedInUser = allProfile?.filter(profile => profile?.email === userEmail)
+    console.log(loggedInUser)
+
     const navBar = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/allTests">All Tests</Link></li>
         <li><Link to="/services">Our Services</Link></li>
         <li><Link to="/orderMedicines">Order Medicines</Link></li>
         <li><Link to="/contactUs">Contact Us</Link></li>
-        {/* {
-            user ? 'true': 'false'
+        {
+            user ?
+
+                <li>
+                    <Link to="/dashboard/myProfile">
+                        <button className="text-blue-500 font-bold">
+                            DashBoard
+                            {/* <FaShoppingCart className="mr-2"></FaShoppingCart> */}
+                            {/* <div className="badge badge-secondary">+{cart.length}</div> */}
+                        </button>
+                    </Link>
+                </li>
+
+                :
+
+                <></>
+
             // user ? condition ? 'double true' : 'one true' : 'false' 
-        } */}
+        }
         {/* {
             user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
-        } */}
-        {/* {
+        }
+        {
             user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
-        } */}
-        <li>
-            <Link to="/dashboard/myProfile">
-                <button className="text-blue-500 font-bold">
-                    DashBoard
-                    {/* <FaShoppingCart className="mr-2"></FaShoppingCart> */}
-                    {/* <div className="badge badge-secondary">+{cart.length}</div> */}
-                </button>
-            </Link>
-        </li>
-       
+        }  */}
     </>
 
     return (
@@ -72,7 +76,7 @@ const Navbar = () => {
                         user?.email ? <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user?.photoURL} />
+                                    <img src={loggedInUser?.singleImg} />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">

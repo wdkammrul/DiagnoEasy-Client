@@ -19,7 +19,7 @@ const PersonalizedSlider = () => {
                 className="mySwiper mb-24"
             >
                 <SwiperSlide>
-                    <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
+                    <img src="" alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />

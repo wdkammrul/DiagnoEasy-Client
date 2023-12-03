@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
 import useAxios from "../../../hook/useAxios";
@@ -50,7 +50,7 @@ const AllBanners = () => {
                             <th>Active</th>
                             <th>Coupon Code</th>
                             <th>Coupon Rate</th>
-                            <th>Update</th>
+                            {/* <th>Update</th> */}
                             <th>Delate</th>
                         </tr>
                     </thead>
@@ -68,7 +68,7 @@ const AllBanners = () => {
                                 <td>{banner?.isActive}</td>
                                 <td>{banner?.couponCodeName}</td>
                                 <td>{banner?.couponRate}</td>
-                                <td><NavLink to='/update' className='bg-blue-600 btn  text-white'>Update</NavLink></td>
+                                {/* <td><NavLink to='/update' className='bg-blue-600 btn  text-white'>Update</NavLink></td> */}
 
                                 <td><button onClick={() => handleDelete(banner?._id)} className="btn bg-blue-600">Delete</button></td>
                             </tr>)

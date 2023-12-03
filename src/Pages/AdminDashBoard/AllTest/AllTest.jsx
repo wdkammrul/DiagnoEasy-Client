@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import useAxios from "../../../hook/useAxios";
+import { Link } from "react-router-dom";
 
 const AllTest = () => {
 
@@ -63,7 +64,7 @@ const AllTest = () => {
                                 <td>{test?.date}</td>
                                 <td>{test?.testPrice}</td>
                                 <td>{test?.slots}</td>
-                                <td><button className="btn bg-blue-600">Update</button></td>
+                                <td><Link to={`/update/${test?._id}`} className="btn bg-blue-600">Update</Link></td>
                                 <td><button onClick={() => handleDelete(test?._id)} className="btn bg-blue-600">Delete</button></td>
                             </tr>)
                         }

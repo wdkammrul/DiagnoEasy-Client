@@ -56,10 +56,10 @@ const AllUsers = () => {
                                                 <label className="input-group">
                                                     <select name="role" className="select rounded-lg checkbox-secondary input-bordered w-full border" defaultValue="">
                                                         <option value="" disabled>Role</option>
-                                                        <option value="remote">True</option>
-                                                        <option value="remote">False</option>
+                                                        <option value="remote">User</option>
+                                                        <option value="remote">Admin</option>
                                                     </select>
-                                                </label>L
+                                                </label>
                                             </div>
                                             <div className="form-control">
                                                 <label className="input-group">

@@ -6,7 +6,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
 
-    const { signInUser, signInUsingPopup } = useContext(AuthContext)
+    const { signInUser } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ const Login = () => {
                     <div className="form-control">
                         <h2 className="text-4xl text-center my-6 uppercase font-extrabold">Log in</h2>
 
-                        <button onClick={signInUsingPopup} className="mb-10 mt-6 m-auto btn bg-blue-600 btn-primary text-white uppercase">Log in with Google </button>
+                        {/* <button onClick={signInUsingPopup} className="mb-10 mt-6 m-auto btn bg-blue-600 btn-primary text-white uppercase">Log in with Google </button> */}
 
 
                         <hr /><h1 className="my-3 text-3xl font-extralight text-center">OR</h1><hr />

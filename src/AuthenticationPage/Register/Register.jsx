@@ -13,12 +13,12 @@ const Register = () => {
 
     const { registerUser } = useContext(AuthContext);
 
-    const isStrongPassword = (password) => {
+    // const isStrongPassword = (password) => {
 
-        const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
+        // const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
 
-        return strongPassword.test(password);
-    };
+    //     return strongPassword.test(password);
+    // };
 
 
 
@@ -46,40 +46,26 @@ const Register = () => {
         const password = form.password.value;
         const district = form.district.value;
         const upazila = form.upazila.value;
-
         const image = form.image.files[0]
         const imageData = await imageUpload(image)
         const singleImg = imageData?.data?.display_url
-        // console.log(singleImg)
-
-
-        // const formData = new FormData()
-        // formData.append('image', image)
-        // try{
-        //     const { data } = await axiosPublic.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, formData)
-
-        //     console.log(data)
-        // }catch(err){
-        //     console.log(err)
-        // }
-
-
         const bloodGroup = form.bloodGroup.value;
-
         const confirmPassword = form.confirmPassword.value;
+        const isActive = true 
+        const isAdmin = false
         if (password !== confirmPassword) {
             return toast.error('Password and confirmPassword does not match')
         }
 
-        const newUser = { name, email, password, confirmPassword, district, upazila, bloodGroup, singleImg }
+        const newUser = { name, email, password, confirmPassword, district, upazila, bloodGroup, singleImg, isActive, isAdmin}
         console.log(newUser);
         console.log(image)
 
 
-        if (!isStrongPassword(password)) {
-            toast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character, and one number');
-            return;
-        }
+        // if (!isStrongPassword(password)) {
+        //     toast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character, and one number');
+        //     return;
+        // }
 
         registerUser(email, password)
             .then(res => {

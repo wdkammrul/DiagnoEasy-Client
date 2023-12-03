@@ -5,11 +5,32 @@ import { useEffect, useState } from "react";
 
 const AllTests = () => {
     const [tests, setTests] = useState([])
+    const [filteredTests, setFilteredTests] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
     useEffect(() => {
         fetch('https://diagno-easy-server.vercel.app/tests')
             .then(res => res.json())
-            .then(data => setTests(data))
+            .then(data => {
+                // Filter tests starting from today
+                const today = new Date().toISOString().split('T')[0];
+                const filteredData = data.filter(test => test.date >= today);
+                setTests(filteredData);
+                setFilteredTests(filteredData);
+            });
     }, [])
+
+    const handleSearch = () => {
+        const filtered = tests.filter(test =>
+            // console.log(test)
+            test.date.toLowerCase().includes(searchTerm.toLowerCase())
+        ) 
+        setFilteredTests(filtered);
+    };
+
+    const handleChange = e => {
+        setSearchTerm(e.target.value);
+        console.log(e.target.value)
+    };
 
     return (
         <div>
@@ -21,8 +42,9 @@ const AllTests = () => {
 
             <div className="form-control ">
                 <div className="input-group flex justify-center mx-auto mt-4">
-                    <input type="text" placeholder="Search here..." className="input input-bordered rounded-r-none" />
-                    <button className="btn btn-square rounded-l-none btn-secondary w-20">
+                    <input type="date" placeholder="Search here..." className="input input-bordered rounded-r-none" value={searchTerm}
+                        onChange={handleChange} />
+                    <button onClick={handleSearch} className="btn btn-square rounded-l-none btn-secondary w-20">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </button>
                 </div>
@@ -31,7 +53,7 @@ const AllTests = () => {
             <div className="grid md:grid-cols-2 gap-5">
 
                 {
-                    tests.map(test => <div key={test._id} className="mt-10 relative flex lg:w-full md:w-full lg:max-w-[48rem] max-w-[390px] md:max-w-[580px] bg-slate-500 text-white mx-auto md:flex-row flex-col rounded-xl  bg-clip-border  shadow-md">
+                    filteredTests.map(test => <div key={test._id} className="mt-10 relative flex lg:w-full md:w-full lg:max-w-[48rem] max-w-[390px] md:max-w-[580px] bg-slate-500 text-white mx-auto md:flex-row flex-col rounded-xl  bg-clip-border  shadow-md">
                         <div className="relative h-full md:h-full md:w-2/5  rounded-xl rounded-r-none">
                             <img src={test?.image} alt="" />
                         </div>
