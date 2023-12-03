@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect} from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
@@ -20,18 +20,18 @@ const Register = () => {
         return strongPassword.test(password);
     };
 
-   
+
 
     useEffect(() => {
         fetch('districts.json')
-        .then(res => res.json())
-        .then(data => setDistricts(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setDistricts(data))
+    }, [])
 
     useEffect(() => {
         fetch('upazilas.json')
-        .then(res => res.json())
-        .then(data => setUpazilas(data))
+            .then(res => res.json())
+            .then(data => setUpazilas(data))
     }, [])
 
     // console.log(upazilas)
@@ -49,9 +49,9 @@ const Register = () => {
 
         const image = form.image.files[0]
         const imageData = await imageUpload(image)
-        const singleImg = imageData?.data?.display_url 
+        const singleImg = imageData?.data?.display_url
         // console.log(singleImg)
-        
+
 
         // const formData = new FormData()
         // formData.append('image', image)
@@ -67,11 +67,11 @@ const Register = () => {
         const bloodGroup = form.bloodGroup.value;
 
         const confirmPassword = form.confirmPassword.value;
-        if (password !== confirmPassword){
+        if (password !== confirmPassword) {
             return toast.error('Password and confirmPassword does not match')
         }
 
-        const newUser = { name, email, password, confirmPassword, district, upazila,bloodGroup, singleImg}
+        const newUser = { name, email, password, confirmPassword, district, upazila, bloodGroup, singleImg }
         console.log(newUser);
         console.log(image)
 
@@ -105,7 +105,7 @@ const Register = () => {
         }
 
 
-        // fetch('http://localhost:5000/users', {
+        // fetch('https://diagno-easy-server.vercel.app/users', {
         //     method: "POST",
         //     headers: {
         //         "content-type": "application/json",
@@ -120,7 +120,7 @@ const Register = () => {
         //         }
         //         console.log(data)
         //     })
-   
+
     }
 
     return (
@@ -182,7 +182,7 @@ const Register = () => {
                                 {
                                     districts.map(dis => <option key={dis.id} value={dis.name}>{dis.name}</option>)
                                 }
-                                
+
                             </select>
                         </label>
                     </div>
@@ -196,7 +196,7 @@ const Register = () => {
                                 {
                                     upazilas.map(upazila => <option key={upazila.id} value={upazila.name}>{upazila.name}</option>)
                                 }
-                                
+
                             </select>
                         </label>
                     </div>

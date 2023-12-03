@@ -5,21 +5,21 @@ import { AuthContext } from "../../../AuthenticationPage/AuthProvider/AuthProvid
 
 const MyProfile = () => {
 
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const userEmail = user?.email
 
   const [allProfile, setAllProfile] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/users')
+    fetch('https://diagno-easy-server.vercel.app/users')
       .then(res => res.json())
       .then(data => setAllProfile(data))
   }, [])
 
   const loggedInUser = allProfile?.filter(profile => profile.email === userEmail)
-  console.log(loggedInUser[0]?.name)
-  
-  
-   
+  // console.log(loggedInUser[0]?.name)
+
+
+
 
   return (
     <div className="bg-slate-800 p-4 pb-32">
@@ -40,7 +40,7 @@ const MyProfile = () => {
 
           </div>
           <div className="space-y-4">
-            <h1 className="text-4xl">Profile Name: { loggedInUser[0]?.name }</h1>
+            <h1 className="text-4xl">Profile Name: {loggedInUser[0]?.name}</h1>
             <h1 className="text-4xl">Email:  {loggedInUser[0]?.email}</h1>
             <h1 className="text-4xl">Blood Group:  {loggedInUser[0]?.bloodGroup}</h1>
           </div>

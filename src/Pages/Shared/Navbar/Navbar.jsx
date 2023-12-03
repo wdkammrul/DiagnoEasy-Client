@@ -26,13 +26,13 @@ const Navbar = () => {
         <li><Link to="/orderMedicines">Order Medicines</Link></li>
         <li><Link to="/contactUs">Contact Us</Link></li>
         {/* {
-            // user ? 'true': 'false'
+            user ? 'true': 'false'
             // user ? condition ? 'double true' : 'one true' : 'false' 
-        }
-        {
+        } */}
+        {/* {
             user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
-        }
-        {
+        } */}
+        {/* {
             user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
         } */}
         <li>

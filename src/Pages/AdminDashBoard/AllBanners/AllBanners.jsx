@@ -1,16 +1,36 @@
 import { NavLink } from "react-router-dom";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
+import useAxios from "../../../hook/useAxios";
 
 
 const AllBanners = () => {
 
+    const axiosPublic = useAxios()
     const [banners, setBanners] = useState([])
+    const [remainingBanner, setRemainingBanner] = useState(banners)
+
+
     useEffect(() => {
-        fetch('http://localhost:5000/banners')
+        fetch('https://diagno-easy-server.vercel.app/banners')
             .then(res => res.json())
             .then(data => setBanners(data))
     }, [])
+
+
+    const handleDelete = async id => {
+        console.log(id)
+        await axiosPublic.delete(`/banners/${id}`)
+            .then(data => {
+                console.log("data", data);
+                if (data.deletedCount > 0) {
+                    const remainingItems = remainingBanner?.filter(item => item._id !== id);
+                    // toast('Item Deleted - if Not Updated Please Refresh')
+                    console.log('Cart Items', remainingItems);
+                    setRemainingBanner(remainingItems);
+                }
+            })
+    }
 
     return (
         <div className="bg-slate-700 p-6 ">
@@ -49,7 +69,8 @@ const AllBanners = () => {
                                 <td>{banner?.couponCodeName}</td>
                                 <td>{banner?.couponRate}</td>
                                 <td><NavLink to='/update' className='bg-blue-600 btn  text-white'>Update</NavLink></td>
-                                <td><button className="btn bg-blue-600">Delete</button></td>
+
+                                <td><button onClick={() => handleDelete(banner?._id)} className="btn bg-blue-600">Delete</button></td>
                             </tr>)
                         }
                     </tbody>

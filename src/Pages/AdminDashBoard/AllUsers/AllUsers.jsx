@@ -6,7 +6,7 @@ const AllUsers = () => {
 
     const [allUsers, setAllUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://diagno-easy-server.vercel.app/users')
             .then(res => res.json())
             .then(data => setAllUsers(data))
     }, [])
@@ -27,12 +27,12 @@ const AllUsers = () => {
                             <th>Email</th>
                             <th>Blood</th>
                             <th>District</th>
-                            <th>Upazila</th>   
+                            <th>Upazila</th>
                             <th>Details</th>
                         </tr>
                     </thead>
                     <tbody>
-                       {
+                        {
                             allUsers.map(user => <tr key={user._id}>
                                 <th><div className="avatar">
                                     <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -78,7 +78,7 @@ const AllUsers = () => {
                                     </dialog>
                                 </td>
                             </tr>)
-                       }
+                        }
                     </tbody>
                 </table>
             </div>
