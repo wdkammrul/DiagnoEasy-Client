@@ -39,7 +39,7 @@ const Banner = () => {
                                 </button> */}
 
                                     </div>
-                                    <NavLink to='/allTests' className="btn btn-primary bg-blue-500 mt-6 w-64 flex justify-center mx-auto">All Tests</NavLink>
+                                    <NavLink to='/allTests' className="btn btn-primary bg-blue-500 mt-6 w-64 flex justify-center mx-auto text-white">All Tests</NavLink>
                                 </div>
                             </div>
                         </div>

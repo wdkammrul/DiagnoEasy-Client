@@ -3,36 +3,41 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
+import { useEffect, useState } from "react";
 
 const PersonalizedSlider = () => {
+
+    const [tests, setTests] = useState([])
+    useEffect(() => {
+        fetch('https://diagno-easy-server.vercel.app/tests')
+            .then(res => res.json())
+            .then(data => setTests(data))
+    }, [])
+
+
     return (
         <section>
-            
+
+            <SectionTitle
+                heading={'upcoming tests'}
+            ></SectionTitle>
+
             <Swiper
-                slidesPerView={4}
+                slidesPerView={3}
                 spaceBetween={30}
                 centeredSlides={true}
                 pagination={{
                     clickable: true,
                 }}
                 // modules={[Pagination]}
-                className="mySwiper mb-24"
+                className="mySwiper my-24"
             >
-                <SwiperSlide>
-                    <img src="" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://i.ibb.co/0r58x4j/kamrul1.jpg" alt="" />
-                </SwiperSlide>
+               {
+                    tests.map(test => <SwiperSlide key={test?._id}>
+                        <img className="w-[530px] h-[220px] rounded-tl-3xl rounded-br-3xl" src={test?.image} alt="" />
+                    </SwiperSlide>)
+               }
             </Swiper>
         </section>
     );
