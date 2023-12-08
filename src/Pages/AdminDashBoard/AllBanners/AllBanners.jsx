@@ -10,7 +10,6 @@ const AllBanners = () => {
     const [banners, setBanners] = useState([])
     const [remainingBanner, setRemainingBanner] = useState(banners)
 
-
     useEffect(() => {
         fetch('https://diagno-easy-server.vercel.app/banners')
             .then(res => res.json())
