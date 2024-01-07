@@ -8,5 +8,3 @@ const useAxios = () => {
     return axiosPublic;
 };
 
-
-export default useAxios;
